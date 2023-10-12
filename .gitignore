@@ -1,5 +1,6 @@
 # Ignore created JSON file
 data.json
 
-# Ignore __pycache__ directories and their contents within the "modules" directory and its subdirectories
-**/modules/__pycache/
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
