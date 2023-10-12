@@ -1,11 +1,25 @@
-from modules import web_scraper
-from modules import save
+from modules.web_scraper import WebScraper
+from modules.save import save_to_json as save
+
+url = 'https://www.1688.com/'
 
 if __name__ == "__main__":
-    #LOAD SCRAPER MODULES AND PROCESS DATA
-    driver = web_scraper.setup_driver()
-    web_scraper.scrape_data(driver, 5)
-    data = web_scraper.process_data(driver)
-    driver.quit()
-    #SAVE DATA TO JSON FILE
-    save.save_to_json(data)
+    #INIT CLASS
+    scraper = WebScraper()
+
+    #INIT DRIVER
+    scraper.prepare_driver(url, 5)
+
+    #SAVE DATA 
+
+    #------------Save Initial Product on Home Page--------
+    save(scraper.process_index_data(), 'init_product.json')
+
+    #------------Save Categorical Data on Home Page---------
+    linkData = scraper.href_link_scraper()
+    save(linkData, 'hrefData.json')
+
+    #------------Scrap and save link data ----------
+    for linkIndex, link in enumerate(linkData):
+        link_data = scraper.scrape_data(link['pageURL'], 5, 40)
+        save(link_data, 'link-index-' + str(linkIndex) + '.json')
