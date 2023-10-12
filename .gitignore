@@ -1,4 +1,5 @@
-#ignore created json file
+# Ignore created JSON file
 data.json
-#ignore pycache
-**/modules/__pycache__/
+
+# Ignore __pycache__ directories and their contents within the "modules" directory and its subdirectories
+**/modules/__pycache/
