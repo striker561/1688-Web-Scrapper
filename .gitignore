@@ -1,0 +1,4 @@
+#ignore created json file
+data.json
+#ignore pycache
+**/modules/__pycache__/
