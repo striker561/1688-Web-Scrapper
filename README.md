@@ -26,7 +26,7 @@ This project is focused on scraping data from a particular webpage, specifically
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone [repository URL]
+   git clone https://github.com/striker561/1688-Web-Scrapper.git
    ```
 
 2. Install the required Python packages using pip:
